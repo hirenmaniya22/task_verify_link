@@ -81,7 +81,7 @@ class DomainBottomSheetWidget extends StatelessWidget {
                 ),
               ),
               Padding(
-                padding: const EdgeInsets.only(left: 16),
+                padding: const EdgeInsets.only(left: 16,top: 4),
                 child: Text(
                   "Custom title (optional):",
                   style: AppTextStyle.medium12(Colors.black),
@@ -100,31 +100,33 @@ class DomainBottomSheetWidget extends StatelessWidget {
                           gapPadding: 0)),
                 ),
               ),
-              Align(
-                alignment: Alignment.center,
-                child: InkWell(
-                  onTap: () {
-                    print("updateIndex ==> ${updateIndex}");
-                    if(updateIndex != null) {
-                      c.updateRecord(updateIndex!);
-                    } else {
-                      if (c.recodeList.length >= 3) {
-                        Get.snackbar("Alert", "You can't add more than 3 links",
-                            backgroundColor: Colors.red, colorText: Colors.white);
+              Padding(
+                padding: const EdgeInsets.only(bottom: 16),
+                child: Align(
+                  alignment: Alignment.center,
+                  child: InkWell(
+                    onTap: () {
+                      if(updateIndex != null) {
+                        c.updateRecord(updateIndex!);
                       } else {
-                        c.saveLink();
+                        if (c.recodeList.length >= 3) {
+                          Get.snackbar("Alert", "You can't add more than 3 links",
+                              backgroundColor: Colors.red, colorText: Colors.white);
+                        } else {
+                          c.saveLink();
+                        }
                       }
-                    }
-                  },
-                  child: Container(
-                    height: 40,
-                    width: 153,
-                    alignment: Alignment.center,
-                    decoration: BoxDecoration(
-                        color: primaryColor,
-                        borderRadius: BorderRadius.circular(8)),
-                    child: Text("Save",
-                        style: AppTextStyle.semiBold16(Colors.white)),
+                    },
+                    child: Container(
+                      height: 40,
+                      width: 153,
+                      alignment: Alignment.center,
+                      decoration: BoxDecoration(
+                          color: primaryColor,
+                          borderRadius: BorderRadius.circular(8)),
+                      child: Text("Save",
+                          style: AppTextStyle.semiBold16(Colors.white)),
+                    ),
                   ),
                 ),
               )

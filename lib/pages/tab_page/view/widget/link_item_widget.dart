@@ -19,7 +19,7 @@ class LinkItemWidget extends StatelessWidget {
     return Card(
       shadowColor: primaryColor,
       color: Colors.white,
-      margin: EdgeInsets.symmetric(horizontal: 20, vertical: 4),
+      margin: const EdgeInsets.symmetric(horizontal: 20, vertical: 4),
       child: ListTile(
         leading: Image.asset(
           recodeList.imagePath,

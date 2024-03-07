@@ -41,13 +41,10 @@ class TabViewController extends GetxController {
     // Regular expression to match URL format
     final RegExp urlRegExp = RegExp(
       r'(http|https)://[\w-]+(\.[\w-]+)+([\w.,@?^=%&amp;:/~+#-]*[\w@?^=%&amp;/~+#-])?',
-      // r"^(http|https):\/\/(?:www\.)?[a-zA-Z0-9\-\.\?\=\&\/]+$",
       caseSensitive: false,
       multiLine: false,
     );
-
     isValidUrl.value = urlRegExp.hasMatch(url);
-    print("isValidUrl.value => ${isValidUrl.value}");
   }
 
   getImagePath() {
